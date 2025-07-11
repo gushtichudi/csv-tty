@@ -19,13 +19,14 @@
 
 // includes from ../include
 #include <args.h>
+#include <csv.h>
 #include <errors.h>
 
 int main(int argc, char **argv) {
 	if (argc < 2) {
 		fprintf(stderr, "Usage: csv-view -i <file>.csv\n");
 		fprintf(stderr, "Run `csv-view -h` for more information about this command\n\n");
-		fprintf(stderr, "NOTE: *ALL* failed assertions are failed memory allocations within this program, just so you know 😉\n\n");
+		fprintf(stderr, "NOTE: *MOST* failed assertions are failed memory allocations within this program, just so you know 😉\n\n");
 		return EXIT_NO_ARGS;
 	}
 
@@ -44,12 +45,12 @@ int main(int argc, char **argv) {
 			default:
 				free(args);
 				// for more accesibility, repeat the same message throughout the program so the user knows.
-				fprintf(stderr, "NOTE: *ALL* failed assertions are failed memory allocations within this program, just so you know 😉\n\n");
+				fprintf(stderr, "NOTE: *MOST* failed assertions are failed memory allocations within this program, just so you know 😉\n\n");
 				return EXIT_BAD_ARGS;
 		}
 	}
 
-	
+	csv_init(args);
 
 	free(args);
 	

@@ -1,6 +1,6 @@
+SRCDIR=src
+BINSRC=$(SRCDIR)/main.c
 BINNAME=csv-view
-BINDIR=src
-BINSRC=$(BINDIR)/main.c
 
 INCDIR=include/
 
@@ -9,8 +9,13 @@ LDFLAGS=
 
 .PHONY: clean install
 
-$(BINNAME): $(BINSRC)
-	$(CC) $(CCFLAGS) $< -o $@
+OBJS=csv.o
+
+$(BINNAME): csv.o $(BINSRC) 
+	$(CC) $(CCFLAGS) $(BINSRC) -o $@ $(OBJS)
+
+csv.o: $(SRCDIR)/csv.c
+	$(CC) $(CCFLAGS) -c $< -o $@
 
 install:
 	sudo install -m775 $(BINNAME) /usr/local/bin/$(BINNAME)

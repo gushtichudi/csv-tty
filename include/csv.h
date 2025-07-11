@@ -1,3 +1,10 @@
 #pragma once
 
-char *return_csv_contents(const char *filepath);
+#include <args.h>
+
+typedef struct Csv {
+	char *row;
+	char *column;
+} Csv;
+
+int csv_init(Args *args);
