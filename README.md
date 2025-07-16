@@ -1,2 +1,4 @@
 # csv-tty
-Format and view CSV files on the terminal
+> [!WARNING]
+> # DEVELOPMENT HALTED
+> ### THIS REPOSITORY WILL BE ARCHIVED IN FAVOUR FOR LIBCSV (on my profile)
